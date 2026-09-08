@@ -49,6 +49,7 @@ function buildCard(video) {
     <div class="vhs-info">
       <h3 class="vhs-name">${video.title}</h3>
       <p class="vhs-date">${formatDate(video.date)}</p>
+      <button type="button" class="media-open">Reproducir video</button>
     </div>
   `;
 
@@ -71,7 +72,9 @@ function buildCard(video) {
   card.addEventListener("pointerleave", hidePreview);
   card.addEventListener("focusin", showPreviewAfterDelay);
   card.addEventListener("focusout", hidePreview);
-  card.addEventListener("click", () => openPlayer(video, preview));
+  card
+    .querySelector(".media-open")
+    .addEventListener("click", () => openPlayer(video, preview));
 
   return card;
 }

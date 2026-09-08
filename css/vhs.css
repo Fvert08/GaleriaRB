@@ -2,7 +2,6 @@
 
 .vhs-card {
   width: 280px;
-  cursor: pointer;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -88,4 +87,8 @@
 .vhs-date {
   color: var(--color-ink-soft);
   font-size: 0.92rem;
+}
+
+.vhs-card .media-open {
+  margin-top: 12px;
 }

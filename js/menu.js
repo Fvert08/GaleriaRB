@@ -1,16 +1,20 @@
 /*
   menu.js
-  El menú principal solo tiene una responsabilidad: reaccionar al clic
-  sobre el VHS o el álbum flotantes, reproducir la pequeña animación de
-  "se hunde y vuelve" y avisar a quien lo llamó (main.js) para navegar.
+  El menú permite explorar los modelos 3D y usar su botón de texto para
+  navegar. Al seleccionar una opción, reproduce una pequeña animación de
+  "se hunde y vuelve" antes de avisar a main.js.
 */
 
 export function initMenu({ onVideos, onPhotos }) {
-  const videosBtn = document.getElementById("option-videos");
-  const photosBtn = document.getElementById("option-photos");
+  const videosOption = document.getElementById("option-videos");
+  const photosOption = document.getElementById("option-photos");
 
-  videosBtn.addEventListener("click", () => pressThenGo(videosBtn, onVideos));
-  photosBtn.addEventListener("click", () => pressThenGo(photosBtn, onPhotos));
+  videosOption
+    .querySelector(".option-label")
+    .addEventListener("click", () => pressThenGo(videosOption, onVideos));
+  photosOption
+    .querySelector(".option-label")
+    .addEventListener("click", () => pressThenGo(photosOption, onPhotos));
 }
 
 function pressThenGo(el, callback) {

@@ -55,10 +55,10 @@
     <!-- ======================= PANTALLA: MENÚ ======================= -->
     <section id="screen-menu" class="screen" aria-label="Menú principal">
       <h1 class="menu-title">Tu espacio personal</h1>
-      <p class="menu-sub">Elige qué quieres revisar hoy.</p>
+      <p class="menu-sub">Explora los objetos 3D y elige qué quieres revisar hoy.</p>
 
       <div class="menu-options">
-        <button id="option-videos" class="floating-option" aria-label="Ver videos">
+        <div id="option-videos" class="floating-option">
           <div class="float-inner menu-model">
             <iframe
               title="Videocámara Panasonic PV-GS31 en 3D"
@@ -68,10 +68,10 @@
               loading="lazy"
             ></iframe>
           </div>
-          <span class="option-label">Videos</span>
-        </button>
+          <button type="button" class="option-label">Videos</button>
+        </div>
 
-        <button id="option-photos" class="floating-option" aria-label="Ver fotos">
+        <div id="option-photos" class="floating-option">
           <div class="float-inner menu-model">
             <iframe
               title="Cámara digital Nikon en 3D"
@@ -81,8 +81,8 @@
               loading="lazy"
             ></iframe>
           </div>
-          <span class="option-label">Fotos</span>
-        </button>
+          <button type="button" class="option-label">Fotos</button>
+        </div>
       </div>
     </section>
 

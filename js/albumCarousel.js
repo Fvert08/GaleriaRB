@@ -38,10 +38,13 @@ function buildCard(album) {
     <div class="album-info">
       <h3 class="album-name">${album.title}</h3>
       <p class="album-count">${countLabel(photoCount)}</p>
+      <button type="button" class="media-open">Abrir fotos</button>
     </div>
   `;
 
-  card.addEventListener("click", () => openViewer(album, card));
+  card
+    .querySelector(".media-open")
+    .addEventListener("click", () => openViewer(album, card));
 
   return card;
 }

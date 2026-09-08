@@ -2,7 +2,6 @@
 
 .album-card {
   width: 250px;
-  cursor: pointer;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -29,7 +28,7 @@
   width: 100%;
   height: 100%;
   border: 0;
-  pointer-events: none;
+  pointer-events: auto;
 }
 
 .album-info {
@@ -48,4 +47,24 @@
 .album-count {
   color: var(--color-ink-soft);
   font-size: 0.92rem;
+}
+
+.media-open {
+  margin-top: 12px;
+  padding: 8px 14px;
+  border-radius: var(--radius-pill);
+  background: var(--color-accent);
+  color: var(--color-surface);
+  font-family: var(--font-body);
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background var(--dur-fast) var(--ease-standard),
+    transform var(--dur-fast) var(--ease-standard);
+}
+
+.media-open:hover,
+.media-open:focus-visible {
+  background: var(--color-accent-dark);
+  transform: translateY(-1px);
 }
