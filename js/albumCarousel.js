@@ -20,14 +20,13 @@ function buildCard(album) {
   card.className = "album-card slide-card";
   card.dataset.id = album.id;
   card.innerHTML = `
-    <div class="storage-model album-shell">
-      <iframe
-        title="Tarjeta micro SD en 3D para ${album.title}"
-        src="https://sketchfab.com/models/f94b06a0dc4644208002fa4a3bbfb56e/embed"
-        allow="autoplay; fullscreen; xr-spatial-tracking"
-        allowfullscreen
-        loading="lazy"
-      ></iframe>
+    <div class="album-shell native-model native-sd-card" aria-hidden="true">
+      <span class="sd-front"><span class="sd-label">micro<br>SD</span></span>
+      <span class="sd-side"></span>
+      <span class="sd-contact sd-contact-1"></span>
+      <span class="sd-contact sd-contact-2"></span>
+      <span class="sd-contact sd-contact-3"></span>
+      <span class="sd-contact sd-contact-4"></span>
     </div>
   `;
 

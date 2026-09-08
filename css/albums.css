@@ -8,38 +8,77 @@
 }
 
 .album-shell {
-  width: 100%;
-  aspect-ratio: 4 / 3;
-  border-radius: var(--radius-object);
-  overflow: hidden;
-  background: var(--color-surface);
-  box-shadow: var(--shadow-md);
+  width: 145px;
+  height: 188px;
   animation: objectFloat 4.5s ease-in-out infinite;
-  transition: box-shadow var(--dur-fast) var(--ease-standard);
 }
 
 .album-card:hover .album-shell {
-  box-shadow: var(--shadow-lg);
-}
-
-.storage-model iframe {
-  display: block;
-  width: 100%;
-  height: 100%;
-  border: 0;
-  pointer-events: none;
+  filter: drop-shadow(0 16px 12px rgba(37, 31, 22, 0.3));
 }
 
 .album-card.pressed .album-shell {
   animation: pressBounce 0.5s var(--ease-standard);
 }
 
+.native-sd-card {
+  perspective: 700px;
+  filter: drop-shadow(0 12px 9px rgba(37, 31, 22, 0.24));
+}
+
+.sd-front {
+  position: absolute;
+  inset: 0;
+  clip-path: polygon(28% 0, 100% 0, 100% 100%, 0 100%, 0 21%);
+  border-radius: 8px;
+  background: linear-gradient(135deg, #313840, #10161b 76%);
+  box-shadow: inset 8px 7px 7px rgba(255, 255, 255, 0.13);
+  transform: translateZ(14px);
+}
+
+.sd-side {
+  position: absolute;
+  top: 4px;
+  right: -11px;
+  width: 15px;
+  height: 176px;
+  border-radius: 0 6px 6px 0;
+  background: #070b0e;
+  transform: rotateY(72deg) translateZ(10px);
+}
+
+.sd-label {
+  position: absolute;
+  left: 21px;
+  bottom: 24px;
+  color: #dae3df;
+  font-family: var(--font-body);
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: -1px;
+  line-height: 0.85;
+}
+
+.sd-contact {
+  position: absolute;
+  top: 11px;
+  width: 15px;
+  height: 37px;
+  background: linear-gradient(90deg, #b99a4b, #f1d881, #8e7130);
+  transform: translateZ(18px);
+}
+
+.sd-contact-1 { left: 46px; }
+.sd-contact-2 { left: 64px; }
+.sd-contact-3 { left: 82px; }
+.sd-contact-4 { left: 100px; }
+
 @keyframes objectFloat {
   0%,
   100% {
-    transform: translateY(0);
+    transform: translateY(0) rotateX(10deg) rotateY(-18deg);
   }
   50% {
-    transform: translateY(-14px);
+    transform: translateY(-14px) rotateX(10deg) rotateY(-18deg);
   }
 }

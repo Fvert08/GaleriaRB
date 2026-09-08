@@ -23,14 +23,14 @@ function buildCard(video) {
   card.innerHTML = `
     <div class="vhs-shell">
       <img class="vhs-preview" src="${video.thumbnail}" alt="Previsualización de ${video.title}">
-      <div class="storage-model vhs-model">
-        <iframe
-          title="Cinta VHS en 3D para ${video.title}"
-          src="https://sketchfab.com/models/efce8c21a9ac4a4fa33a336127007c48/embed"
-          allow="autoplay; fullscreen; xr-spatial-tracking"
-          allowfullscreen
-          loading="lazy"
-        ></iframe>
+      <div class="vhs-model native-model native-vhs" aria-hidden="true">
+        <span class="vhs-front">
+          <span class="vhs-label"></span>
+          <span class="vhs-reel vhs-reel-left"></span>
+          <span class="vhs-reel vhs-reel-right"></span>
+          <span class="vhs-window"></span>
+        </span>
+        <span class="vhs-side"></span>
       </div>
       <span class="vhs-duration-badge">${video.duration}</span>
     </div>
