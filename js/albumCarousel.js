@@ -23,20 +23,17 @@ function buildCard(album) {
   const card = document.createElement("div");
   card.className = "album-card slide-card";
   card.dataset.id = album.id;
-  card.style.setProperty("--album-color", album.color || "var(--color-accent)");
-
   const photoCount = Array.isArray(album.photos) ? album.photos.length : 0;
 
   card.innerHTML = `
-    <div class="album-shell">
-      <div class="album-spine"></div>
-      <div class="album-cover">
-        <svg class="album-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-          <rect x="3.5" y="5" width="17" height="14" rx="1.6" stroke="currentColor" stroke-width="1.4"/>
-          <circle cx="8.3" cy="9.6" r="1.4" fill="currentColor"/>
-          <path d="M4 16.2l4.6-4 3.6 3 3-2.6 5.3 4.4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </div>
+    <div class="storage-model album-shell">
+      <iframe
+        title="Tarjeta micro SD en 3D para ${album.title}"
+        src="https://sketchfab.com/models/f94b06a0dc4644208002fa4a3bbfb56e/embed"
+        allow="autoplay; fullscreen; xr-spatial-tracking"
+        allowfullscreen
+        loading="lazy"
+      ></iframe>
     </div>
     <div class="album-info">
       <h3 class="album-name">${album.title}</h3>

@@ -34,12 +34,17 @@ function buildCard(video) {
 
   card.innerHTML = `
     <div class="vhs-shell">
-      <div class="vhs-reels"><span></span><span></span></div>
-      <div class="vhs-window">
-        <img class="vhs-thumb" src="${video.thumbnail}" alt="Previsualización de ${video.title}">
-        <div class="vhs-play-badge" aria-hidden="true">&#9654;</div>
-        <span class="vhs-duration-badge">${video.duration}</span>
+      <img class="vhs-preview" src="${video.thumbnail}" alt="Previsualización de ${video.title}">
+      <div class="storage-model vhs-model">
+        <iframe
+          title="Cinta VHS en 3D para ${video.title}"
+          src="https://sketchfab.com/models/efce8c21a9ac4a4fa33a336127007c48/embed"
+          allow="autoplay; fullscreen; xr-spatial-tracking"
+          allowfullscreen
+          loading="lazy"
+        ></iframe>
       </div>
+      <span class="vhs-duration-badge">${video.duration}</span>
     </div>
     <div class="vhs-info">
       <h3 class="vhs-name">${video.title}</h3>
@@ -47,8 +52,26 @@ function buildCard(video) {
     </div>
   `;
 
-  const windowEl = card.querySelector(".vhs-window");
-  card.addEventListener("click", () => openPlayer(video, windowEl));
+  const preview = card.querySelector(".vhs-preview");
+  let previewTimer;
+
+  const showPreviewAfterDelay = () => {
+    window.clearTimeout(previewTimer);
+    previewTimer = window.setTimeout(() => {
+      card.classList.add("preview-visible");
+    }, 1500);
+  };
+
+  const hidePreview = () => {
+    window.clearTimeout(previewTimer);
+    card.classList.remove("preview-visible");
+  };
+
+  card.addEventListener("pointerenter", showPreviewAfterDelay);
+  card.addEventListener("pointerleave", hidePreview);
+  card.addEventListener("focusin", showPreviewAfterDelay);
+  card.addEventListener("focusout", hidePreview);
+  card.addEventListener("click", () => openPlayer(video, preview));
 
   return card;
 }

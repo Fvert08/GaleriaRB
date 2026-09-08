@@ -34,7 +34,7 @@
   filter: drop-shadow(var(--shadow-md));
 }
 
-.album-mini .float-inner {
+.floating-option:nth-child(2) .float-inner {
   animation-delay: 1.1s;
 }
 
@@ -79,81 +79,20 @@
   animation-play-state: paused;
 }
 
-/* ---------- Mini VHS (icono del menú) ---------- */
-.mini-vhs {
-  width: 148px;
-  height: 100px;
-  background: var(--color-shell);
-  border-radius: var(--radius-object);
-  position: relative;
-  padding: 12px;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-}
-
-.mini-vhs-reels {
-  display: flex;
-  justify-content: space-between;
-  padding: 0 10px;
-}
-
-.mini-vhs-reels span {
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  border: 2.5px solid var(--color-shell-light);
-}
-
-.mini-vhs-window {
-  flex: 1;
-  background: var(--color-surface-alt);
-  border-radius: 6px;
-}
-
-/* ---------- Mini álbum (icono del menú) ---------- */
-.mini-album {
-  width: 132px;
-  height: 100px;
-  display: flex;
+.menu-model {
+  width: 190px;
+  height: 140px;
   border-radius: var(--radius-object);
   overflow: hidden;
-}
-
-.mini-album-spine {
-  width: 16px;
-  background: var(--color-accent);
-}
-
-.mini-album-cover {
-  flex: 1;
   background: var(--color-surface);
-  border: 1.5px solid var(--color-border);
-  border-left: none;
-  position: relative;
+  box-shadow: var(--shadow-md);
 }
 
-.mini-album-cover::before,
-.mini-album-cover::after {
-  content: "";
-  position: absolute;
-  border-radius: 50%;
-  background: var(--color-accent-tint);
-}
-
-.mini-album-cover::before {
-  width: 20px;
-  height: 20px;
-  top: 22px;
-  left: 24px;
-}
-
-.mini-album-cover::after {
-  width: 34px;
-  height: 34px;
-  bottom: -8px;
-  right: 18px;
-  background: var(--color-border);
+.menu-model iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  pointer-events: none;
 }
 
 @media (max-width: 560px) {

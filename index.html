@@ -59,17 +59,27 @@
 
       <div class="menu-options">
         <button id="option-videos" class="floating-option" aria-label="Ver videos">
-          <div class="float-inner mini-vhs">
-            <div class="mini-vhs-reels"><span></span><span></span></div>
-            <div class="mini-vhs-window"></div>
+          <div class="float-inner menu-model">
+            <iframe
+              title="Videocámara Panasonic PV-GS31 en 3D"
+              src="https://sketchfab.com/models/31e21d8b8cb14a75b5685515ec6ed0b7/embed"
+              allow="autoplay; fullscreen; xr-spatial-tracking"
+              allowfullscreen
+              loading="lazy"
+            ></iframe>
           </div>
           <span class="option-label">Videos</span>
         </button>
 
-        <button id="option-photos" class="floating-option album-mini" aria-label="Ver fotos">
-          <div class="float-inner mini-album">
-            <span class="mini-album-spine"></span>
-            <span class="mini-album-cover"></span>
+        <button id="option-photos" class="floating-option" aria-label="Ver fotos">
+          <div class="float-inner menu-model">
+            <iframe
+              title="Cámara digital Nikon en 3D"
+              src="https://sketchfab.com/models/5af5afc3cd2a40babf7f10d1b7ec0ec0/embed"
+              allow="autoplay; fullscreen; xr-spatial-tracking"
+              allowfullscreen
+              loading="lazy"
+            ></iframe>
           </div>
           <span class="option-label">Fotos</span>
         </button>
@@ -95,8 +105,8 @@
       </div>
     </section>
 
-    <!-- ======================= PANTALLA: ÁLBUMES ======================= -->
-    <section id="screen-albums" class="screen" aria-label="Álbumes de fotos">
+    <!-- ======================= PANTALLA: FOTOS ======================= -->
+    <section id="screen-albums" class="screen" aria-label="Tarjetas micro SD de fotos">
       <header class="carousel-header">
         <button id="albums-back" class="btn-back">
           <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -108,9 +118,9 @@
       </header>
 
       <div class="carousel-stage">
-        <button id="albums-prev" class="nav-arrow" aria-label="Álbum anterior">&#8249;</button>
+        <button id="albums-prev" class="nav-arrow" aria-label="Tarjeta micro SD anterior">&#8249;</button>
         <div id="album-slot" class="carousel-slot"></div>
-        <button id="albums-next" class="nav-arrow" aria-label="Álbum siguiente">&#8250;</button>
+        <button id="albums-next" class="nav-arrow" aria-label="Tarjeta micro SD siguiente">&#8250;</button>
       </div>
     </section>
   </div>
