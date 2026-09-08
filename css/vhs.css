@@ -49,6 +49,10 @@
   animation: pressBounce 0.5s var(--ease-standard);
 }
 
+.vhs-info {
+  margin-top: 22px;
+}
+
 .native-vhs {
   perspective: 800px;
   filter: drop-shadow(0 15px 10px rgba(37, 31, 22, 0.3));
@@ -118,19 +122,4 @@
   50% {
     transform: translateY(-14px) rotateX(12deg) rotateY(-12deg);
   }
-}
-
-.vhs-duration-badge {
-  position: absolute;
-  right: 12px;
-  bottom: 12px;
-  z-index: 1;
-  padding: 3px 8px;
-  background: rgba(10, 8, 4, 0.72);
-  color: #fff;
-  font-size: 0.78rem;
-  font-weight: 600;
-  border-radius: 5px;
-  letter-spacing: 0.3px;
-  pointer-events: none;
 }

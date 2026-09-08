@@ -21,6 +21,41 @@
   animation: pressBounce 0.5s var(--ease-standard);
 }
 
+.media-info {
+  width: 100%;
+  margin-top: 22px;
+  text-align: center;
+}
+
+.media-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.media-color-dot {
+  width: 12px;
+  height: 12px;
+  flex: 0 0 12px;
+  border-radius: 50%;
+  background: var(--media-color, var(--color-accent));
+  box-shadow: 0 0 0 3px rgba(37, 31, 22, 0.12);
+}
+
+.media-title {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  font-weight: 600;
+  color: var(--color-ink);
+}
+
+.media-detail {
+  margin-top: 4px;
+  color: var(--color-ink-soft);
+  font-size: 0.9rem;
+}
+
 .native-sd-card {
   perspective: 700px;
   filter: drop-shadow(0 12px 9px rgba(37, 31, 22, 0.24));

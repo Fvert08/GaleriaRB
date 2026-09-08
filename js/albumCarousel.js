@@ -15,10 +15,16 @@ let slot;
 let prevBtn;
 let nextBtn;
 
+function countLabel(count) {
+  return count === 1 ? "1 foto" : `${count} fotos`;
+}
+
 function buildCard(album) {
   const card = document.createElement("div");
   card.className = "album-card slide-card";
   card.dataset.id = album.id;
+  card.style.setProperty("--media-color", album.color || "var(--color-accent)");
+  const photoCount = Array.isArray(album.photos) ? album.photos.length : 0;
   card.innerHTML = `
     <div class="album-shell native-model native-sd-card" aria-hidden="true">
       <span class="sd-front"><span class="sd-label">micro<br>SD</span></span>
@@ -27,6 +33,13 @@ function buildCard(album) {
       <span class="sd-contact sd-contact-2"></span>
       <span class="sd-contact sd-contact-3"></span>
       <span class="sd-contact sd-contact-4"></span>
+    </div>
+    <div class="media-info album-info">
+      <div class="media-title-row">
+        <span class="media-color-dot" aria-hidden="true"></span>
+        <h3 class="media-title">${album.title}</h3>
+      </div>
+      <p class="media-detail">${countLabel(photoCount)}</p>
     </div>
   `;
 

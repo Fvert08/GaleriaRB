@@ -15,10 +15,22 @@ let slot;
 let prevBtn;
 let nextBtn;
 
+const dateFormatter = new Intl.DateTimeFormat("es-ES", {
+  day: "numeric",
+  month: "long",
+  year: "numeric",
+});
+
+function formatDate(isoDate) {
+  const date = new Date(`${isoDate}T00:00:00`);
+  return Number.isNaN(date.getTime()) ? isoDate : dateFormatter.format(date);
+}
+
 function buildCard(video) {
   const card = document.createElement("div");
   card.className = "vhs-card slide-card";
   card.dataset.id = video.id;
+  card.style.setProperty("--media-color", video.color || "var(--color-accent)");
 
   card.innerHTML = `
     <div class="vhs-shell">
@@ -32,7 +44,13 @@ function buildCard(video) {
         </span>
         <span class="vhs-side"></span>
       </div>
-      <span class="vhs-duration-badge">${video.duration}</span>
+    </div>
+    <div class="media-info vhs-info">
+      <div class="media-title-row">
+        <span class="media-color-dot" aria-hidden="true"></span>
+        <h3 class="media-title">${video.title}</h3>
+      </div>
+      <p class="media-detail">${formatDate(video.date)} · ${video.duration}</p>
     </div>
   `;
 
