@@ -13,10 +13,6 @@
   transition: transform var(--dur-fast) var(--ease-standard);
 }
 
-.vhs-card:hover .vhs-shell {
-  transform: translateY(-3px);
-}
-
 .vhs-card:hover .vhs-model {
   box-shadow: var(--shadow-lg);
 }
@@ -28,6 +24,7 @@
   overflow: hidden;
   background: var(--color-surface);
   box-shadow: var(--shadow-md);
+  animation: objectFloat 4.5s ease-in-out infinite;
 }
 
 .vhs-preview {
@@ -56,6 +53,20 @@
   transform: translate(-50%, 0) scale(1);
 }
 
+.vhs-card.pressed .vhs-model {
+  animation: pressBounce 0.5s var(--ease-standard);
+}
+
+@keyframes objectFloat {
+  0%,
+  100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-14px);
+  }
+}
+
 .vhs-duration-badge {
   position: absolute;
   right: 12px;
@@ -69,26 +80,4 @@
   border-radius: 5px;
   letter-spacing: 0.3px;
   pointer-events: none;
-}
-
-.vhs-info {
-  text-align: center;
-  margin-top: 18px;
-}
-
-.vhs-name {
-  font-family: var(--font-display);
-  font-size: 1.15rem;
-  font-weight: 600;
-  color: var(--color-ink);
-  margin-bottom: 4px;
-}
-
-.vhs-date {
-  color: var(--color-ink-soft);
-  font-size: 0.92rem;
-}
-
-.vhs-card .media-open {
-  margin-top: 12px;
 }

@@ -1,20 +1,15 @@
 /*
   menu.js
-  El menú permite explorar los modelos 3D y usar su botón de texto para
-  navegar. Al seleccionar una opción, reproduce una pequeña animación de
-  "se hunde y vuelve" antes de avisar a main.js.
+  El menú reacciona al clic sobre cada objeto 3D, reproduce una pequeña
+  animación de "se hunde y vuelve" y después avisa a main.js para navegar.
 */
 
 export function initMenu({ onVideos, onPhotos }) {
-  const videosOption = document.getElementById("option-videos");
-  const photosOption = document.getElementById("option-photos");
+  const videosBtn = document.getElementById("option-videos");
+  const photosBtn = document.getElementById("option-photos");
 
-  videosOption
-    .querySelector(".option-label")
-    .addEventListener("click", () => pressThenGo(videosOption, onVideos));
-  photosOption
-    .querySelector(".option-label")
-    .addEventListener("click", () => pressThenGo(photosOption, onPhotos));
+  videosBtn.addEventListener("click", () => pressThenGo(videosBtn, onVideos));
+  photosBtn.addEventListener("click", () => pressThenGo(photosBtn, onPhotos));
 }
 
 function pressThenGo(el, callback) {

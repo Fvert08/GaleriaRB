@@ -15,16 +15,10 @@ let slot;
 let prevBtn;
 let nextBtn;
 
-function countLabel(count) {
-  return count === 1 ? "1 foto" : `${count} fotos`;
-}
-
 function buildCard(album) {
   const card = document.createElement("div");
   card.className = "album-card slide-card";
   card.dataset.id = album.id;
-  const photoCount = Array.isArray(album.photos) ? album.photos.length : 0;
-
   card.innerHTML = `
     <div class="storage-model album-shell">
       <iframe
@@ -35,18 +29,40 @@ function buildCard(album) {
         loading="lazy"
       ></iframe>
     </div>
-    <div class="album-info">
-      <h3 class="album-name">${album.title}</h3>
-      <p class="album-count">${countLabel(photoCount)}</p>
-      <button type="button" class="media-open">Abrir fotos</button>
-    </div>
   `;
 
-  card
-    .querySelector(".media-open")
-    .addEventListener("click", () => openViewer(album, card));
+  makeSelectable(card, card.querySelector(".album-shell"), album.title, () =>
+    openViewer(album, card)
+  );
 
   return card;
+}
+
+function makeSelectable(card, animatedEl, title, onSelect) {
+  card.tabIndex = 0;
+  card.setAttribute("role", "button");
+  card.setAttribute("aria-label", "Abrir fotos de " + title);
+
+  const select = () => {
+    if (card.classList.contains("pressed")) return;
+    card.classList.add("pressed");
+    animatedEl.addEventListener(
+      "animationend",
+      () => {
+        card.classList.remove("pressed");
+        onSelect();
+      },
+      { once: true }
+    );
+  };
+
+  card.addEventListener("click", select);
+  card.addEventListener("keydown", (event) => {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      select();
+    }
+  });
 }
 
 function render(direction) {

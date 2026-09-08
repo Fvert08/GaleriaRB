@@ -15,18 +15,6 @@ let slot;
 let prevBtn;
 let nextBtn;
 
-const dateFormatter = new Intl.DateTimeFormat("es-ES", {
-  day: "numeric",
-  month: "long",
-  year: "numeric",
-});
-
-function formatDate(isoDate) {
-  const date = new Date(`${isoDate}T00:00:00`);
-  if (Number.isNaN(date.getTime())) return isoDate;
-  return dateFormatter.format(date);
-}
-
 function buildCard(video) {
   const card = document.createElement("div");
   card.className = "vhs-card slide-card";
@@ -45,11 +33,6 @@ function buildCard(video) {
         ></iframe>
       </div>
       <span class="vhs-duration-badge">${video.duration}</span>
-    </div>
-    <div class="vhs-info">
-      <h3 class="vhs-name">${video.title}</h3>
-      <p class="vhs-date">${formatDate(video.date)}</p>
-      <button type="button" class="media-open">Reproducir video</button>
     </div>
   `;
 
@@ -72,9 +55,28 @@ function buildCard(video) {
   card.addEventListener("pointerleave", hidePreview);
   card.addEventListener("focusin", showPreviewAfterDelay);
   card.addEventListener("focusout", hidePreview);
-  card
-    .querySelector(".media-open")
-    .addEventListener("click", () => openPlayer(video, preview));
+  card.tabIndex = 0;
+  card.setAttribute("role", "button");
+  card.setAttribute("aria-label", "Reproducir " + video.title);
+  const select = () => {
+    if (card.classList.contains("pressed")) return;
+    card.classList.add("pressed");
+    card.querySelector(".vhs-model").addEventListener(
+      "animationend",
+      () => {
+        card.classList.remove("pressed");
+        openPlayer(video, preview);
+      },
+      { once: true }
+    );
+  };
+  card.addEventListener("click", select);
+  card.addEventListener("keydown", (event) => {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      select();
+    }
+  });
 
   return card;
 }
