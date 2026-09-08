@@ -1,0 +1,48 @@
+/*
+  variables.css
+  Sistema de diseño del sitio: una bóveda personal de recuerdos analógicos
+  (cintas VHS y álbumes de fotos). Paleta cálida sobre un único tono crema,
+  con un acento tipo "etiqueta de VHS" y formas ancladas en el objeto real
+  (estuche de cinta, lomo de álbum) en vez de tarjetas genéricas.
+*/
+
+:root {
+  /* ---------- Color ---------- */
+  --color-bg: #ECE1C8;              /* crema único de fondo, sin degradado */
+  --color-surface: #FAF5E7;         /* superficie clara para paneles flotantes */
+  --color-surface-alt: #F3EAD3;     /* variación sutil de superficie */
+  --color-border: #DCCBA3;          /* bordes y divisores suaves */
+
+  --color-ink: #2A2318;             /* texto principal, alto contraste */
+  --color-ink-soft: #6E6250;        /* texto secundario (fechas, metadatos) */
+  --color-ink-faint: #A0947C;       /* texto terciario / placeholders */
+
+  --color-accent: #7B2E2A;          /* rojo óxido, como etiqueta de cinta VHS */
+  --color-accent-dark: #5E211E;     /* estado hover/activo del acento */
+  --color-accent-tint: #E7C9AE;     /* realce suave sobre superficies claras */
+
+  --color-shell: #2E2620;           /* "plástico" oscuro del estuche VHS */
+  --color-shell-light: #45392E;     /* detalles/relieves sobre el estuche */
+
+  --color-danger: #9A3B33;          /* mensajes de error */
+
+  /* ---------- Sombra "flotante" ---------- */
+  --shadow-sm: 0 4px 14px rgba(30, 24, 14, 0.10);
+  --shadow-md: 0 14px 34px rgba(30, 24, 14, 0.16);
+  --shadow-lg: 0 24px 56px rgba(30, 24, 14, 0.22);
+
+  /* ---------- Tipografía ---------- */
+  --font-display: "Fraunces", "Iowan Old Style", "Georgia", serif;
+  --font-body: "Inter", "Segoe UI", system-ui, sans-serif;
+
+  /* ---------- Forma ---------- */
+  --radius-panel: 26px;   /* paneles genéricos: login, encabezados, overlays */
+  --radius-object: 10px;  /* objetos con identidad propia: VHS, álbum */
+  --radius-pill: 999px;
+
+  /* ---------- Movimiento ---------- */
+  --ease-standard: cubic-bezier(0.4, 0, 0.2, 1);
+  --dur-fast: 0.2s;
+  --dur-base: 0.4s;
+  --dur-slow: 0.55s;
+}

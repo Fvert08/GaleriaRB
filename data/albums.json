@@ -1,0 +1,48 @@
+[
+  {
+    "id": "alb-01",
+    "title": "Verano en la playa",
+    "color": "#4E7C74",
+    "photos": [
+      { "src": "https://picsum.photos/seed/playa-1/1200/900", "caption": "Verano en la playa 1" },
+      { "src": "https://picsum.photos/seed/playa-2/1200/900", "caption": "Verano en la playa 2" },
+      { "src": "https://picsum.photos/seed/playa-3/1200/900", "caption": "Verano en la playa 3" },
+      { "src": "https://picsum.photos/seed/playa-4/1200/900", "caption": "Verano en la playa 4" },
+      { "src": "https://picsum.photos/seed/playa-5/1200/900", "caption": "Verano en la playa 5" }
+    ]
+  },
+  {
+    "id": "alb-02",
+    "title": "Familia",
+    "color": "#A85C56",
+    "photos": [
+      { "src": "https://picsum.photos/seed/familia-1/1200/900", "caption": "Familia 1" },
+      { "src": "https://picsum.photos/seed/familia-2/1200/900", "caption": "Familia 2" },
+      { "src": "https://picsum.photos/seed/familia-3/1200/900", "caption": "Familia 3" },
+      { "src": "https://picsum.photos/seed/familia-4/1200/900", "caption": "Familia 4" }
+    ]
+  },
+  {
+    "id": "alb-03",
+    "title": "Amigos",
+    "color": "#C08A2E",
+    "photos": [
+      { "src": "https://picsum.photos/seed/amigos-1/1200/900", "caption": "Amigos 1" },
+      { "src": "https://picsum.photos/seed/amigos-2/1200/900", "caption": "Amigos 2" },
+      { "src": "https://picsum.photos/seed/amigos-3/1200/900", "caption": "Amigos 3" },
+      { "src": "https://picsum.photos/seed/amigos-4/1200/900", "caption": "Amigos 4" },
+      { "src": "https://picsum.photos/seed/amigos-5/1200/900", "caption": "Amigos 5" },
+      { "src": "https://picsum.photos/seed/amigos-6/1200/900", "caption": "Amigos 6" }
+    ]
+  },
+  {
+    "id": "alb-04",
+    "title": "Viajes",
+    "color": "#3F5A72",
+    "photos": [
+      { "src": "https://picsum.photos/seed/viajes-1/1200/900", "caption": "Viajes 1" },
+      { "src": "https://picsum.photos/seed/viajes-2/1200/900", "caption": "Viajes 2" },
+      { "src": "https://picsum.photos/seed/viajes-3/1200/900", "caption": "Viajes 3" }
+    ]
+  }
+]

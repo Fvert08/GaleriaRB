@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bóveda personal · Videos y fotos</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Fraunces:wght@500;600;700&family=Inter:wght@400;500;600;700&display=swap"
+    rel="stylesheet"
+  />
+
+  <link rel="stylesheet" href="css/variables.css" />
+  <link rel="stylesheet" href="css/reset.css" />
+  <link rel="stylesheet" href="css/base.css" />
+  <link rel="stylesheet" href="css/login.css" />
+  <link rel="stylesheet" href="css/menu.css" />
+  <link rel="stylesheet" href="css/carousel.css" />
+  <link rel="stylesheet" href="css/vhs.css" />
+  <link rel="stylesheet" href="css/albums.css" />
+  <link rel="stylesheet" href="css/video-player.css" />
+  <link rel="stylesheet" href="css/photo-viewer.css" />
+</head>
+<body>
+  <div id="app">
+    <!-- ======================= PANTALLA: ACCESO ======================= -->
+    <section id="screen-login" class="screen active" aria-label="Acceso">
+      <div id="login-card" class="login-card">
+        <svg class="login-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <rect x="5" y="10.5" width="14" height="10" rx="2" stroke="currentColor" stroke-width="1.5" />
+          <path d="M8 10.5V8a4 4 0 0 1 8 0v2.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" />
+          <circle cx="12" cy="15" r="1.6" fill="currentColor" />
+        </svg>
+        <h1>Bienvenido de nuevo</h1>
+        <p class="login-sub">Introduce la contraseña para entrar a tu espacio.</p>
+
+        <form id="login-form" autocomplete="off">
+          <label class="sr-only" for="password-input">Contraseña</label>
+          <input
+            id="password-input"
+            type="password"
+            inputmode="numeric"
+            maxlength="12"
+            placeholder="••••"
+            required
+          />
+          <button type="submit" class="btn btn-primary">Entrar</button>
+        </form>
+        <p id="login-error" class="login-error" aria-live="polite"></p>
+      </div>
+    </section>
+
+    <!-- ======================= PANTALLA: MENÚ ======================= -->
+    <section id="screen-menu" class="screen" aria-label="Menú principal">
+      <h1 class="menu-title">Tu espacio personal</h1>
+      <p class="menu-sub">Elige qué quieres revisar hoy.</p>
+
+      <div class="menu-options">
+        <button id="option-videos" class="floating-option" aria-label="Ver videos">
+          <div class="float-inner mini-vhs">
+            <div class="mini-vhs-reels"><span></span><span></span></div>
+            <div class="mini-vhs-window"></div>
+          </div>
+          <span class="option-label">Videos</span>
+        </button>
+
+        <button id="option-photos" class="floating-option album-mini" aria-label="Ver fotos">
+          <div class="float-inner mini-album">
+            <span class="mini-album-spine"></span>
+            <span class="mini-album-cover"></span>
+          </div>
+          <span class="option-label">Fotos</span>
+        </button>
+      </div>
+    </section>
+
+    <!-- ======================= PANTALLA: VIDEOS ======================= -->
+    <section id="screen-videos" class="screen" aria-label="Videos">
+      <header class="carousel-header">
+        <button id="videos-back" class="btn-back">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+          Volver
+        </button>
+        <h2 class="carousel-title">Videos</h2>
+      </header>
+
+      <div class="carousel-stage">
+        <button id="videos-prev" class="nav-arrow" aria-label="Video anterior">&#8249;</button>
+        <div id="vhs-slot" class="carousel-slot"></div>
+        <button id="videos-next" class="nav-arrow" aria-label="Video siguiente">&#8250;</button>
+      </div>
+    </section>
+
+    <!-- ======================= PANTALLA: ÁLBUMES ======================= -->
+    <section id="screen-albums" class="screen" aria-label="Álbumes de fotos">
+      <header class="carousel-header">
+        <button id="albums-back" class="btn-back">
+          <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M15 18l-6-6 6-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+          Volver
+        </button>
+        <h2 class="carousel-title">Fotos</h2>
+      </header>
+
+      <div class="carousel-stage">
+        <button id="albums-prev" class="nav-arrow" aria-label="Álbum anterior">&#8249;</button>
+        <div id="album-slot" class="carousel-slot"></div>
+        <button id="albums-next" class="nav-arrow" aria-label="Álbum siguiente">&#8250;</button>
+      </div>
+    </section>
+  </div>
+
+  <!-- ================= OVERLAY: REPRODUCTOR DE VIDEO ================= -->
+  <div id="video-player-overlay" class="overlay" aria-label="Reproductor de video">
+    <div class="player-frame">
+      <img id="player-thumb" class="player-media" alt="" />
+      <video id="player-video" class="player-media" controls playsinline></video>
+
+      <div class="player-chrome">
+        <div class="player-topbar">
+          <h3 id="player-title" class="player-title"></h3>
+          <button id="player-close" class="btn-close" aria-label="Cerrar video">&#10005;</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= OVERLAY: VISOR DE FOTOS ================= -->
+  <div id="photo-viewer-overlay" class="overlay" aria-label="Visor de fotos">
+    <div class="viewer-frame">
+      <div class="viewer-content">
+        <header class="viewer-header">
+          <button id="viewer-back" class="btn-close btn-close--light" aria-label="Volver a los álbumes">&#10005;</button>
+          <h3 id="viewer-album-title" class="viewer-title"></h3>
+        </header>
+
+        <div class="viewer-stage">
+          <button id="viewer-prev" class="nav-arrow" aria-label="Foto anterior">&#8249;</button>
+          <div class="viewer-photo-wrap">
+            <img id="viewer-photo" class="viewer-photo" src="" alt="" />
+          </div>
+          <button id="viewer-next" class="nav-arrow" aria-label="Foto siguiente">&#8250;</button>
+        </div>
+
+        <p id="viewer-counter" class="viewer-counter"></p>
+      </div>
+    </div>
+  </div>
+
+  <script type="module" src="js/main.js"></script>
+</body>
+</html>

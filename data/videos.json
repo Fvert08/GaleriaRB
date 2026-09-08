@@ -1,0 +1,42 @@
+[
+  {
+    "id": "vid-01",
+    "title": "Cumpleaños de la abuela",
+    "date": "2023-05-14",
+    "duration": "9:56",
+    "thumbnail": "https://picsum.photos/seed/vhs-cumple/640/480",
+    "src": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/BigBuckBunny.mp4"
+  },
+  {
+    "id": "vid-02",
+    "title": "Viaje a la costa",
+    "date": "2023-07-02",
+    "duration": "12:14",
+    "thumbnail": "https://picsum.photos/seed/vhs-costa/640/480",
+    "src": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ElephantsDream.mp4"
+  },
+  {
+    "id": "vid-03",
+    "title": "Navidad en casa",
+    "date": "2022-12-25",
+    "duration": "6:41",
+    "thumbnail": "https://picsum.photos/seed/vhs-navidad/640/480",
+    "src": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerBlazes.mp4"
+  },
+  {
+    "id": "vid-04",
+    "title": "Graduación",
+    "date": "2024-02-09",
+    "duration": "15:03",
+    "thumbnail": "https://picsum.photos/seed/vhs-graduacion/640/480",
+    "src": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/ForBiggerEscapes.mp4"
+  },
+  {
+    "id": "vid-05",
+    "title": "Tarde en el jardín",
+    "date": "2024-06-21",
+    "duration": "4:27",
+    "thumbnail": "https://picsum.photos/seed/vhs-jardin/640/480",
+    "src": "https://commondatastorage.googleapis.com/gtv-videos-bucket/sample/Sintel.mp4"
+  }
+]

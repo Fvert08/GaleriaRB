@@ -1,0 +1,65 @@
+/* albums.css — el álbum de fotos: lomo de color + portada */
+
+.album-card {
+  width: 250px;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.album-shell {
+  width: 100%;
+  display: flex;
+  aspect-ratio: 4 / 3;
+  border-radius: var(--radius-object);
+  overflow: hidden;
+  box-shadow: var(--shadow-md);
+  transition: box-shadow var(--dur-fast) var(--ease-standard),
+    transform var(--dur-fast) var(--ease-standard);
+}
+
+.album-card:hover .album-shell {
+  box-shadow: var(--shadow-lg);
+  transform: translateY(-3px);
+}
+
+.album-spine {
+  width: 22px;
+  background: var(--album-color, var(--color-accent));
+}
+
+.album-cover {
+  flex: 1;
+  background: var(--color-surface);
+  border: 1.5px solid var(--color-border);
+  border-left: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.album-icon {
+  width: 46px;
+  height: 46px;
+  color: var(--album-color, var(--color-accent));
+}
+
+.album-info {
+  text-align: center;
+  margin-top: 18px;
+}
+
+.album-name {
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  font-weight: 600;
+  color: var(--color-ink);
+  margin-bottom: 4px;
+}
+
+.album-count {
+  color: var(--color-ink-soft);
+  font-size: 0.92rem;
+}

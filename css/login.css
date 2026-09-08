@@ -1,0 +1,91 @@
+/* login.css — pantalla de acceso a la bóveda */
+
+.login-card {
+  width: 100%;
+  max-width: 380px;
+  background: var(--color-surface);
+  border-radius: var(--radius-panel);
+  box-shadow: var(--shadow-lg);
+  padding: 52px 40px 40px;
+  text-align: center;
+}
+
+.login-icon {
+  width: 44px;
+  height: 44px;
+  margin: 0 auto 20px;
+  color: var(--color-accent);
+}
+
+.login-card h1 {
+  font-family: var(--font-display);
+  font-size: 1.7rem;
+  font-weight: 600;
+  color: var(--color-ink);
+  margin-bottom: 10px;
+}
+
+.login-sub {
+  color: var(--color-ink-soft);
+  font-size: 0.98rem;
+  margin-bottom: 32px;
+}
+
+#login-form {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+#password-input {
+  width: 100%;
+  padding: 16px 18px;
+  border-radius: var(--radius-object);
+  border: 1.5px solid var(--color-border);
+  background: var(--color-surface-alt);
+  font-size: 1.3rem;
+  letter-spacing: 10px;
+  text-align: center;
+  color: var(--color-ink);
+  transition: border-color var(--dur-fast) var(--ease-standard);
+}
+
+#password-input::placeholder {
+  letter-spacing: normal;
+  font-size: 1rem;
+  color: var(--color-ink-faint);
+}
+
+#password-input:focus {
+  border-color: var(--color-accent);
+}
+
+.login-error {
+  min-height: 20px;
+  color: var(--color-danger);
+  font-size: 0.9rem;
+}
+
+.login-card.shake {
+  animation: loginShake 0.4s var(--ease-standard);
+}
+
+@keyframes loginShake {
+  10%,
+  90% {
+    transform: translateX(-2px);
+  }
+  20%,
+  80% {
+    transform: translateX(4px);
+  }
+  30%,
+  50%,
+  70% {
+    transform: translateX(-8px);
+  }
+  40%,
+  60% {
+    transform: translateX(8px);
+  }
+}

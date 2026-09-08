@@ -1,0 +1,120 @@
+/*
+  carousel.css
+  Estructura compartida por la pantalla de Videos (VHS) y la de Álbumes:
+  encabezado con título y botón volver, escenario central con flechas
+  laterales, y las clases de animación para el deslizamiento entre tarjetas.
+*/
+
+.carousel-header {
+  position: relative;
+  width: 100%;
+  max-width: 720px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 44px;
+}
+
+.carousel-header .btn-back {
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+.carousel-title {
+  font-family: var(--font-display);
+  font-size: 1.9rem;
+  font-weight: 600;
+  color: var(--color-ink);
+}
+
+.carousel-stage {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  width: 100%;
+  max-width: 640px;
+}
+
+.carousel-slot {
+  width: 300px;
+  min-height: 400px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+}
+
+.nav-arrow {
+  flex-shrink: 0;
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: var(--color-surface);
+  box-shadow: var(--shadow-sm);
+  color: var(--color-ink);
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform var(--dur-fast) var(--ease-standard),
+    box-shadow var(--dur-fast) var(--ease-standard);
+}
+
+.nav-arrow:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+.nav-arrow:active {
+  transform: translateY(0);
+}
+
+/* ---------- Deslizamiento entre tarjetas (VHS o álbum) ---------- */
+.slide-card {
+  transition: transform var(--dur-base) var(--ease-standard),
+    opacity var(--dur-base) var(--ease-standard);
+}
+
+.slide-card.enter-from-right {
+  transform: translateX(130%);
+  opacity: 0;
+}
+
+.slide-card.enter-from-left {
+  transform: translateX(-130%);
+  opacity: 0;
+}
+
+.slide-card.settled {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+.slide-card.exit-to-left {
+  transform: translateX(-130%);
+  opacity: 0;
+}
+
+.slide-card.exit-to-right {
+  transform: translateX(130%);
+  opacity: 0;
+}
+
+@media (max-width: 640px) {
+  .carousel-stage {
+    gap: 10px;
+  }
+
+  .carousel-slot {
+    width: 62vw;
+    min-height: 360px;
+  }
+
+  .nav-arrow {
+    width: 44px;
+    height: 44px;
+  }
+}
