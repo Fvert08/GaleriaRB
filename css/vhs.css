@@ -30,9 +30,9 @@
   opacity: 0;
   visibility: hidden;
   object-fit: cover;
-  border: 3px solid var(--color-surface);
+  border: 8px solid var(--color-surface);
   border-radius: 10px;
-  box-shadow: var(--shadow-lg);
+  box-shadow: var(--shadow-md);
   pointer-events: none;
   transition: opacity var(--dur-base) var(--ease-standard),
     transform var(--dur-base) var(--ease-standard),
@@ -55,15 +55,15 @@
 
 .native-vhs {
   perspective: 800px;
-  filter: drop-shadow(0 15px 10px rgba(37, 31, 22, 0.3));
+  filter: drop-shadow(0 15px 10px rgba(126, 140, 160, 0.24));
 }
 
 .vhs-front {
   position: absolute;
   inset: 0;
   border-radius: 12px 12px 18px 18px;
-  background: linear-gradient(135deg, #303237, #121418 72%);
-  box-shadow: inset 9px 8px 9px rgba(255, 255, 255, 0.12);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-md), inset 5px 5px 9px rgba(190, 200, 214, 0.5), inset -5px -5px 9px #fff;
   transform: translateZ(16px);
 }
 
@@ -74,7 +74,7 @@
   width: 18px;
   height: 150px;
   border-radius: 0 7px 7px 0;
-  background: #090a0d;
+  background: #c2ccd9;
   transform: rotateY(76deg) translateZ(10px);
 }
 
@@ -85,8 +85,8 @@
   width: 194px;
   height: 75px;
   border-radius: 7px;
-  background: linear-gradient(145deg, #ead9ac, #b6a071);
-  box-shadow: inset 0 0 0 4px rgba(91, 70, 38, 0.28);
+  background: var(--color-surface-alt);
+  box-shadow: var(--shadow-inset-soft);
 }
 
 .vhs-reel {
@@ -94,9 +94,9 @@
   top: 45px;
   width: 39px;
   height: 39px;
-  border: 7px dotted #ece1c4;
+  border: 7px dotted #f7faff;
   border-radius: 50%;
-  background: #303037;
+  background: #aebaca;
   z-index: 1;
 }
 
@@ -110,7 +110,7 @@
   width: 76px;
   height: 12px;
   border-radius: 3px;
-  background: #272420;
+  background: #8b9bb1;
   z-index: 2;
 }
 

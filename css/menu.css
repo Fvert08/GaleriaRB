@@ -49,12 +49,14 @@
 }
 
 .option-label {
-  padding: 0;
+  padding: 10px 22px;
+  border-radius: var(--radius-pill);
   font-family: var(--font-display);
   font-weight: 600;
   font-size: 1.1rem;
   color: var(--color-ink);
   cursor: pointer;
+  box-shadow: var(--shadow-sm);
 }
 
 /* Presión al seleccionar: se hunde y rebota levemente antes de navegar */
@@ -79,6 +81,11 @@
 
 .floating-option.pressed .float-inner {
   animation-play-state: paused;
+}
+
+.floating-option:hover .option-label {
+  color: var(--color-accent);
+  box-shadow: var(--shadow-inset-soft);
 }
 
 .native-model {
@@ -236,6 +243,40 @@
   border-radius: 4px 4px 0 0;
   background: #554c42;
   transform: translateZ(25px);
+}
+
+/* Acabado neomórfico de los objetos: mismo material suave que la interfaz. */
+.camera-body,
+.photo-body {
+  background: var(--color-surface);
+  box-shadow: var(--shadow-md), inset 4px 4px 8px rgba(190, 200, 214, 0.55), inset -4px -4px 8px #fff;
+}
+
+.camera-handle,
+.photo-grip,
+.camera-viewfinder,
+.photo-viewfinder {
+  background: var(--color-surface-alt);
+  border-color: var(--color-surface-alt);
+  box-shadow: var(--shadow-sm);
+}
+
+.camera-panel {
+  border-color: var(--color-border);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-inset-soft);
+}
+
+.camera-lens,
+.photo-lens {
+  border-color: var(--color-surface);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-inset), 6px 6px 12px #b8c2d0;
+}
+
+.camera-lens span,
+.photo-lens span {
+  background: radial-gradient(circle at 35% 30%, #a8c3e1, #637fa8 36%, #3e526d 72%);
 }
 
 @keyframes floatVideoCamera {

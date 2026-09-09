@@ -8,7 +8,7 @@
 .viewer-frame {
   position: fixed;
   overflow: hidden;
-  background: var(--color-surface);
+  background: var(--color-bg);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -40,6 +40,8 @@
   align-items: center;
   gap: 16px;
   padding: 20px 24px;
+  background: var(--color-surface);
+  box-shadow: 0 8px 20px rgba(126, 140, 160, 0.13);
 }
 
 .viewer-title {
@@ -70,7 +72,7 @@
 .viewer-photo {
   max-width: 100%;
   max-height: 68vh;
-  border-radius: 10px;
+  border-radius: var(--radius-panel);
   box-shadow: var(--shadow-lg);
   cursor: zoom-in;
   transition: transform var(--dur-base) var(--ease-standard);

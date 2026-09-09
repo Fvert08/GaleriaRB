@@ -3,7 +3,7 @@
 body {
   font-family: var(--font-body);
   color: var(--color-ink);
-  background: var(--color-bg);
+  background: radial-gradient(circle at 15% 12%, #f7f9fc 0, var(--color-bg) 38%, #dfe6ef 100%);
   -webkit-font-smoothing: antialiased;
   line-height: 1.5;
 }
@@ -12,7 +12,7 @@ body {
   position: relative;
   min-height: 100vh;
   overflow: hidden;
-  background: var(--color-bg);
+  background: radial-gradient(circle at 15% 12%, #f7f9fc 0, var(--color-bg) 38%, #dfe6ef 100%);
 }
 
 .sr-only {
@@ -67,13 +67,13 @@ body {
 .btn-primary {
   background: var(--color-accent);
   color: var(--color-surface);
-  box-shadow: var(--shadow-sm);
+  box-shadow: 6px 6px 12px #aab5c7, -6px -6px 12px #fff;
 }
 
 .btn-primary:hover {
   background: var(--color-accent-dark);
-  transform: translateY(-1px);
-  box-shadow: var(--shadow-md);
+  transform: translateY(1px);
+  box-shadow: 2px 2px 5px #aab5c7, -2px -2px 5px #fff;
 }
 
 .btn-back {
@@ -91,8 +91,9 @@ body {
 }
 
 .btn-back:hover {
-  color: var(--color-ink);
-  transform: translateX(-2px);
+  color: var(--color-accent);
+  transform: translateX(0);
+  box-shadow: var(--shadow-inset-soft);
 }
 
 .btn-back svg {
@@ -107,28 +108,32 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  background: rgba(0, 0, 0, 0.35);
-  color: #fff;
+  background: var(--color-surface);
+  color: var(--color-ink-soft);
+  box-shadow: var(--shadow-sm);
   font-size: 1.1rem;
   transition: background var(--dur-fast) var(--ease-standard),
     transform var(--dur-fast) var(--ease-standard);
 }
 
 .btn-close:hover {
-  background: rgba(0, 0, 0, 0.55);
-  transform: scale(1.05);
+  background: var(--color-surface);
+  color: var(--color-accent);
+  transform: scale(0.96);
+  box-shadow: var(--shadow-inset-soft);
 }
 
 /* Variante clara del botón cerrar, para el visor de fotos (fondo claro) */
 .btn-close--light {
-  background: var(--color-surface-alt);
+  background: var(--color-surface);
   color: var(--color-ink-soft);
   box-shadow: var(--shadow-sm);
 }
 
 .btn-close--light:hover {
-  background: var(--color-border);
-  color: var(--color-ink);
+  background: var(--color-surface);
+  color: var(--color-accent);
+  box-shadow: var(--shadow-inset-soft);
 }
 
 /* ---------- Overlays de pantalla completa (reproductor / visor) ---------- */
@@ -141,6 +146,8 @@ body {
 
 .overlay.active {
   display: block;
+  background: rgba(231, 236, 243, 0.78);
+  backdrop-filter: blur(12px);
 }
 
 .frame-content {

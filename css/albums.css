@@ -40,7 +40,7 @@
   flex: 0 0 12px;
   border-radius: 50%;
   background: var(--media-color, var(--color-accent));
-  box-shadow: 0 0 0 3px rgba(37, 31, 22, 0.12);
+  box-shadow: 3px 3px 6px #bec8d5, -3px -3px 6px #fff;
 }
 
 .media-title {
@@ -66,8 +66,8 @@
   inset: 0;
   clip-path: polygon(28% 0, 100% 0, 100% 100%, 0 100%, 0 21%);
   border-radius: 8px;
-  background: linear-gradient(135deg, #313840, #10161b 76%);
-  box-shadow: inset 8px 7px 7px rgba(255, 255, 255, 0.13);
+  background: var(--color-surface);
+  box-shadow: var(--shadow-md), inset 4px 4px 8px rgba(190, 200, 214, 0.5), inset -4px -4px 8px #fff;
   transform: translateZ(14px);
 }
 
@@ -78,7 +78,7 @@
   width: 15px;
   height: 176px;
   border-radius: 0 6px 6px 0;
-  background: #070b0e;
+  background: #c1cad7;
   transform: rotateY(72deg) translateZ(10px);
 }
 
@@ -86,7 +86,7 @@
   position: absolute;
   left: 21px;
   bottom: 24px;
-  color: #dae3df;
+  color: var(--color-accent);
   font-family: var(--font-body);
   font-size: 1.35rem;
   font-weight: 700;
@@ -99,7 +99,7 @@
   top: 11px;
   width: 15px;
   height: 37px;
-  background: linear-gradient(90deg, #b99a4b, #f1d881, #8e7130);
+  background: linear-gradient(90deg, #b7c3d4, #f7faff, #a6b2c3);
   transform: translateZ(18px);
 }
 
