@@ -54,9 +54,10 @@
   font-family: var(--font-display);
   font-weight: 600;
   font-size: 1.1rem;
-  color: var(--color-ink);
+  color: #fff;
   cursor: pointer;
-  box-shadow: var(--shadow-sm);
+  background: linear-gradient(135deg, #718ad4, var(--color-accent));
+  box-shadow: 7px 7px 13px #aab5c7, -5px -5px 11px #fff, inset 1px 1px 2px rgba(255, 255, 255, 0.25);
 }
 
 /* Presión al seleccionar: se hunde y rebota levemente antes de navegar */
@@ -84,8 +85,9 @@
 }
 
 .floating-option:hover .option-label {
-  color: var(--color-accent);
-  box-shadow: var(--shadow-inset-soft);
+  color: #fff;
+  background: linear-gradient(135deg, var(--color-accent), var(--color-accent-dark));
+  box-shadow: inset 3px 3px 6px rgba(57, 77, 145, 0.5), inset -2px -2px 5px rgba(255, 255, 255, 0.18);
 }
 
 .native-model {
@@ -248,30 +250,35 @@
 /* Acabado neomórfico de los objetos: mismo material suave que la interfaz. */
 .camera-body,
 .photo-body {
-  background: var(--color-surface);
-  box-shadow: var(--shadow-md), inset 4px 4px 8px rgba(190, 200, 214, 0.55), inset -4px -4px 8px #fff;
+  box-shadow: 10px 10px 20px #abb7c9, -8px -8px 16px #fff, inset 4px 4px 8px rgba(255, 255, 255, 0.25), inset -4px -4px 8px rgba(54, 71, 105, 0.2);
 }
+
+.camera-body { background: linear-gradient(135deg, #78a2d3, var(--color-video)); }
+.photo-body { background: linear-gradient(135deg, #e8a49b, var(--color-photo)); }
 
 .camera-handle,
 .photo-grip,
 .camera-viewfinder,
 .photo-viewfinder {
-  background: var(--color-surface-alt);
-  border-color: var(--color-surface-alt);
-  box-shadow: var(--shadow-sm);
+  box-shadow: 4px 4px 8px rgba(77, 94, 126, 0.25), -3px -3px 7px rgba(255, 255, 255, 0.5);
 }
 
+.camera-handle,
+.camera-viewfinder { background: #3e6093; border-color: #3e6093; }
+.photo-grip,
+.photo-viewfinder { background: #a95f5b; border-color: #a95f5b; }
+
 .camera-panel {
-  border-color: var(--color-border);
-  background: var(--color-surface);
-  box-shadow: var(--shadow-inset-soft);
+  border-color: #91b2d8;
+  background: #496f9e;
+  box-shadow: inset 3px 3px 6px rgba(29, 58, 93, 0.55), inset -2px -2px 5px rgba(164, 200, 234, 0.3);
 }
 
 .camera-lens,
 .photo-lens {
-  border-color: var(--color-surface);
-  background: var(--color-surface);
-  box-shadow: var(--shadow-inset), 6px 6px 12px #b8c2d0;
+  border-color: #d5e0ea;
+  background: #3c506d;
+  box-shadow: inset 5px 5px 9px #273b55, inset -3px -3px 7px #7890ad, 6px 6px 12px rgba(70, 87, 118, 0.35);
 }
 
 .camera-lens span,

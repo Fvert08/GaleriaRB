@@ -66,8 +66,8 @@
   inset: 0;
   clip-path: polygon(28% 0, 100% 0, 100% 100%, 0 100%, 0 21%);
   border-radius: 8px;
-  background: var(--color-surface);
-  box-shadow: var(--shadow-md), inset 4px 4px 8px rgba(190, 200, 214, 0.5), inset -4px -4px 8px #fff;
+  background: linear-gradient(135deg, #aa93e2, var(--color-storage));
+  box-shadow: 10px 10px 20px #abb7c9, -8px -8px 16px #fff, inset 4px 4px 8px rgba(255, 255, 255, 0.28), inset -4px -4px 8px rgba(49, 35, 101, 0.25);
   transform: translateZ(14px);
 }
 
@@ -78,7 +78,7 @@
   width: 15px;
   height: 176px;
   border-radius: 0 6px 6px 0;
-  background: #c1cad7;
+  background: #5c4b9a;
   transform: rotateY(72deg) translateZ(10px);
 }
 
@@ -86,7 +86,7 @@
   position: absolute;
   left: 21px;
   bottom: 24px;
-  color: var(--color-accent);
+  color: #fff;
   font-family: var(--font-body);
   font-size: 1.35rem;
   font-weight: 700;
@@ -99,7 +99,7 @@
   top: 11px;
   width: 15px;
   height: 37px;
-  background: linear-gradient(90deg, #b7c3d4, #f7faff, #a6b2c3);
+  background: linear-gradient(90deg, #d2c4f4, #fff, #aa92dc);
   transform: translateZ(18px);
 }
 
