@@ -1,8 +1,7 @@
 /*
   menu.js
-  El menú principal solo tiene una responsabilidad: reaccionar al clic
-  sobre el VHS o el álbum flotantes, reproducir la pequeña animación de
-  "se hunde y vuelve" y avisar a quien lo llamó (main.js) para navegar.
+  El menú reacciona al clic sobre cada objeto 3D, reproduce una pequeña
+  animación de "se hunde y vuelve" y después avisa a main.js para navegar.
 */
 
 export function initMenu({ onVideos, onPhotos }) {

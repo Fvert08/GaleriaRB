@@ -23,30 +23,58 @@ function buildCard(album) {
   const card = document.createElement("div");
   card.className = "album-card slide-card";
   card.dataset.id = album.id;
-  card.style.setProperty("--album-color", album.color || "var(--color-accent)");
-
+  card.style.setProperty("--media-color", album.color || "var(--color-accent)");
   const photoCount = Array.isArray(album.photos) ? album.photos.length : 0;
-
   card.innerHTML = `
-    <div class="album-shell">
-      <div class="album-spine"></div>
-      <div class="album-cover">
-        <svg class="album-icon" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-          <rect x="3.5" y="5" width="17" height="14" rx="1.6" stroke="currentColor" stroke-width="1.4"/>
-          <circle cx="8.3" cy="9.6" r="1.4" fill="currentColor"/>
-          <path d="M4 16.2l4.6-4 3.6 3 3-2.6 5.3 4.4" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
-        </svg>
-      </div>
+    <div class="album-shell native-model native-sd-card" aria-hidden="true">
+      <span class="sd-front"><span class="sd-label">micro<br>SD</span></span>
+      <span class="sd-side"></span>
+      <span class="sd-contact sd-contact-1"></span>
+      <span class="sd-contact sd-contact-2"></span>
+      <span class="sd-contact sd-contact-3"></span>
+      <span class="sd-contact sd-contact-4"></span>
     </div>
-    <div class="album-info">
-      <h3 class="album-name">${album.title}</h3>
-      <p class="album-count">${countLabel(photoCount)}</p>
+    <div class="media-info album-info">
+      <div class="media-title-row">
+        <span class="media-color-dot" aria-hidden="true"></span>
+        <h3 class="media-title">${album.title}</h3>
+      </div>
+      <p class="media-detail">${countLabel(photoCount)}</p>
     </div>
   `;
 
-  card.addEventListener("click", () => openViewer(album, card));
+  makeSelectable(card, card.querySelector(".album-shell"), album.title, () =>
+    openViewer(album, card)
+  );
 
   return card;
+}
+
+function makeSelectable(card, animatedEl, title, onSelect) {
+  card.tabIndex = 0;
+  card.setAttribute("role", "button");
+  card.setAttribute("aria-label", "Abrir fotos de " + title);
+
+  const select = () => {
+    if (card.classList.contains("pressed")) return;
+    card.classList.add("pressed");
+    animatedEl.addEventListener(
+      "animationend",
+      () => {
+        card.classList.remove("pressed");
+        onSelect();
+      },
+      { once: true }
+    );
+  };
+
+  card.addEventListener("click", select);
+  card.addEventListener("keydown", (event) => {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      select();
+    }
+  });
 }
 
 function render(direction) {

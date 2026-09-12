@@ -2,7 +2,6 @@
 
 .vhs-card {
   width: 280px;
-  cursor: pointer;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -10,101 +9,119 @@
 
 .vhs-shell {
   width: 100%;
-  background: var(--color-shell);
-  border-radius: var(--radius-object);
-  box-shadow: var(--shadow-md);
-  padding: 16px 16px 20px;
-  transition: box-shadow var(--dur-fast) var(--ease-standard),
-    transform var(--dur-fast) var(--ease-standard);
-}
-
-.vhs-card:hover .vhs-shell {
-  box-shadow: var(--shadow-lg);
-  transform: translateY(-3px);
-}
-
-.vhs-reels {
-  display: flex;
-  justify-content: space-between;
-  padding: 4px 18px 12px;
-}
-
-.vhs-reels span {
-  width: 20px;
-  height: 20px;
-  border-radius: 50%;
-  border: 3px solid var(--color-shell-light);
   position: relative;
+  transition: transform var(--dur-fast) var(--ease-standard);
 }
 
-.vhs-reels span::after {
-  content: "";
+.vhs-model {
+  width: 260px;
+  height: 172px;
+  animation: objectFloat 4.5s ease-in-out infinite;
+}
+
+.vhs-preview {
   position: absolute;
-  inset: 6px;
-  border-radius: 50%;
-  background: var(--color-shell-light);
-}
-
-.vhs-window {
-  position: relative;
-  width: 100%;
+  z-index: 1;
+  bottom: calc(100% + 16px);
+  left: 50%;
+  width: 220px;
   aspect-ratio: 4 / 3;
-  border-radius: 8px;
-  overflow: hidden;
-  background: #000;
-}
-
-.vhs-thumb {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  display: block;
-}
-
-.vhs-play-badge {
-  position: absolute;
-  inset: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 1.8rem;
-  color: #fff;
-  background: rgba(20, 16, 10, 0.18);
+  transform: translate(-50%, 10px) scale(0.96);
   opacity: 0;
-  transition: opacity var(--dur-fast) var(--ease-standard);
+  visibility: hidden;
+  object-fit: cover;
+  border: 8px solid var(--color-surface);
+  border-radius: 10px;
+  box-shadow: var(--shadow-md);
+  pointer-events: none;
+  transition: opacity var(--dur-base) var(--ease-standard),
+    transform var(--dur-base) var(--ease-standard),
+    visibility var(--dur-base) var(--ease-standard);
 }
 
-.vhs-card:hover .vhs-play-badge {
+.vhs-card.preview-visible .vhs-preview {
   opacity: 1;
+  visibility: visible;
+  transform: translate(-50%, 0) scale(1);
 }
 
-.vhs-duration-badge {
-  position: absolute;
-  right: 8px;
-  bottom: 8px;
-  padding: 3px 8px;
-  background: rgba(10, 8, 4, 0.72);
-  color: #fff;
-  font-size: 0.78rem;
-  font-weight: 600;
-  border-radius: 5px;
-  letter-spacing: 0.3px;
+.vhs-card.pressed .vhs-model {
+  animation: pressBounce 0.5s var(--ease-standard);
 }
 
 .vhs-info {
-  text-align: center;
-  margin-top: 18px;
+  margin-top: 22px;
 }
 
-.vhs-name {
-  font-family: var(--font-display);
-  font-size: 1.15rem;
-  font-weight: 600;
-  color: var(--color-ink);
-  margin-bottom: 4px;
+.native-vhs {
+  perspective: 800px;
+  filter: drop-shadow(0 15px 10px rgba(126, 140, 160, 0.24));
 }
 
-.vhs-date {
-  color: var(--color-ink-soft);
-  font-size: 0.92rem;
+.vhs-front {
+  position: absolute;
+  inset: 0;
+  border-radius: 18px 18px 22px 22px;
+  background: linear-gradient(145deg, #5f7896, var(--color-vhs) 70%);
+  box-shadow: 12px 12px 22px #aab5c7, -7px -7px 15px #fff, inset 4px 4px 9px rgba(255, 255, 255, 0.2), inset -5px -5px 9px rgba(25, 37, 59, 0.3);
+  transform: translateZ(16px);
+}
+
+.vhs-side {
+  position: absolute;
+  right: -12px;
+  top: 7px;
+  width: 18px;
+  height: 158px;
+  border-radius: 0 7px 7px 0;
+  background: #2e405b;
+  transform: rotateY(76deg) translateZ(10px);
+}
+
+.vhs-label {
+  position: absolute;
+  left: 26px;
+  top: 22px;
+  width: 208px;
+  height: 92px;
+  border-radius: 11px;
+  background: linear-gradient(145deg, #ebd4b1, #c99473);
+  box-shadow: inset 4px 4px 7px rgba(115, 72, 52, 0.3), inset -3px -3px 6px rgba(255, 244, 223, 0.45);
+}
+
+.vhs-reel {
+  position: absolute;
+  top: 45px;
+  width: 46px;
+  height: 46px;
+  border: 8px dotted #ebd4b1;
+  border-radius: 50%;
+  background: #344761;
+  box-shadow: inset 3px 3px 5px #1e2d42, inset -2px -2px 4px #7087a4;
+  z-index: 1;
+}
+
+.vhs-reel-left { left: 49px; }
+.vhs-reel-right { right: 49px; }
+
+.vhs-window {
+  position: absolute;
+  left: 88px;
+  top: 62px;
+  width: 84px;
+  height: 16px;
+  border-radius: 6px;
+  background: #24344a;
+  box-shadow: inset 2px 2px 4px #142033, 0 1px 0 rgba(255, 255, 255, 0.2);
+  z-index: 2;
+}
+
+@keyframes objectFloat {
+  0%,
+  100% {
+    transform: translateY(0) rotateX(12deg) rotateY(-12deg);
+  }
+  50% {
+    transform: translateY(-14px) rotateX(12deg) rotateY(-12deg);
+  }
 }

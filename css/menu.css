@@ -34,7 +34,7 @@
   filter: drop-shadow(var(--shadow-md));
 }
 
-.album-mini .float-inner {
+.floating-option:nth-child(2) .float-inner {
   animation-delay: 1.1s;
 }
 
@@ -49,10 +49,15 @@
 }
 
 .option-label {
+  padding: 10px 22px;
+  border-radius: var(--radius-pill);
   font-family: var(--font-display);
   font-weight: 600;
   font-size: 1.1rem;
-  color: var(--color-ink);
+  color: #fff;
+  cursor: pointer;
+  background: linear-gradient(135deg, #718ad4, var(--color-accent));
+  box-shadow: 7px 7px 13px #aab5c7, -5px -5px 11px #fff, inset 1px 1px 2px rgba(255, 255, 255, 0.25);
 }
 
 /* Presión al seleccionar: se hunde y rebota levemente antes de navegar */
@@ -79,81 +84,216 @@
   animation-play-state: paused;
 }
 
-/* ---------- Mini VHS (icono del menú) ---------- */
-.mini-vhs {
-  width: 148px;
-  height: 100px;
-  background: var(--color-shell);
-  border-radius: var(--radius-object);
+.floating-option:hover .option-label {
+  color: #fff;
+  background: linear-gradient(135deg, var(--color-accent), var(--color-accent-dark));
+  box-shadow: inset 3px 3px 6px rgba(57, 77, 145, 0.5), inset -2px -2px 5px rgba(255, 255, 255, 0.18);
+}
+
+.native-model {
   position: relative;
-  padding: 12px;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
+  transform-style: preserve-3d;
 }
 
-.mini-vhs-reels {
-  display: flex;
-  justify-content: space-between;
-  padding: 0 10px;
+/* Cámara de video construida con caras CSS, sin visor externo. */
+.native-video-camera {
+  width: 190px;
+  height: 132px;
+  perspective: 700px;
+  animation: floatVideoCamera 4.5s ease-in-out infinite;
 }
 
-.mini-vhs-reels span {
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  border: 2.5px solid var(--color-shell-light);
+.camera-body {
+  position: absolute;
+  left: 24px;
+  bottom: 17px;
+  width: 116px;
+  height: 77px;
+  border-radius: 13px 11px 11px 14px;
+  background: linear-gradient(135deg, #3f4851, #171b20 74%);
+  box-shadow: inset 8px 7px 8px rgba(255, 255, 255, 0.12), 12px 13px 14px rgba(37, 31, 22, 0.25);
+  transform: translateZ(18px);
 }
 
-.mini-vhs-window {
-  flex: 1;
-  background: var(--color-surface-alt);
-  border-radius: 6px;
-}
-
-/* ---------- Mini álbum (icono del menú) ---------- */
-.mini-album {
-  width: 132px;
-  height: 100px;
-  display: flex;
-  border-radius: var(--radius-object);
-  overflow: hidden;
-}
-
-.mini-album-spine {
-  width: 16px;
-  background: var(--color-accent);
-}
-
-.mini-album-cover {
-  flex: 1;
-  background: var(--color-surface);
-  border: 1.5px solid var(--color-border);
-  border-left: none;
-  position: relative;
-}
-
-.mini-album-cover::before,
-.mini-album-cover::after {
+.camera-body::after,
+.photo-body::after {
   content: "";
   position: absolute;
+  inset: 9px 12px auto auto;
+  width: 19px;
+  height: 7px;
+  border-radius: 4px;
+  background: #94a2a5;
+  box-shadow: -31px 34px 0 -1px #0d1115;
+}
+
+.camera-panel {
+  position: absolute;
+  left: 15px;
+  top: 15px;
+  width: 51px;
+  height: 38px;
+  border: 3px solid #68727a;
+  border-radius: 4px;
+  background: #1a2526;
+}
+
+.camera-lens {
+  position: absolute;
+  right: 14px;
+  bottom: 30px;
+  width: 61px;
+  height: 61px;
   border-radius: 50%;
-  background: var(--color-accent-tint);
+  background: repeating-radial-gradient(circle, #06090c 0 7px, #3c454c 8px 12px, #11161b 13px 17px);
+  border: 5px solid #525c63;
+  box-shadow: 8px 8px 10px rgba(24, 20, 15, 0.25);
+  transform: translateZ(31px);
 }
 
-.mini-album-cover::before {
-  width: 20px;
-  height: 20px;
-  top: 22px;
-  left: 24px;
+.camera-lens span,
+.photo-lens span {
+  position: absolute;
+  inset: 13px;
+  border-radius: inherit;
+  background: radial-gradient(circle at 35% 30%, #88c9d0, #254d5d 36%, #081218 72%);
 }
 
-.mini-album-cover::after {
-  width: 34px;
-  height: 34px;
-  bottom: -8px;
-  right: 18px;
-  background: var(--color-border);
+.camera-handle {
+  position: absolute;
+  left: 48px;
+  top: 10px;
+  width: 66px;
+  height: 30px;
+  border: 10px solid #252c31;
+  border-bottom: 0;
+  border-radius: 16px 16px 0 0;
+  transform: translateZ(5px);
+}
+
+.camera-viewfinder {
+  position: absolute;
+  left: 40px;
+  bottom: 12px;
+  width: 30px;
+  height: 12px;
+  border-radius: 3px;
+  background: #0e1418;
+  transform: translateZ(25px);
+}
+
+/* Cámara digital compacta construida con CSS 3D. */
+.native-photo-camera {
+  width: 180px;
+  height: 130px;
+  perspective: 700px;
+  animation: floatPhotoCamera 4.5s ease-in-out infinite;
+}
+
+.photo-body {
+  position: absolute;
+  left: 17px;
+  bottom: 20px;
+  width: 142px;
+  height: 83px;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #c8b7a0, #6e604f 70%);
+  box-shadow: inset 7px 7px 9px rgba(255, 255, 255, 0.38), 12px 13px 14px rgba(37, 31, 22, 0.25);
+  transform: translateZ(17px);
+}
+
+.photo-grip {
+  position: absolute;
+  right: 19px;
+  bottom: 17px;
+  width: 29px;
+  height: 71px;
+  border-radius: 8px 13px 13px 8px;
+  background: #655849;
+  transform: translateZ(30px);
+}
+
+.photo-lens {
+  position: absolute;
+  left: 55px;
+  bottom: 28px;
+  width: 65px;
+  height: 65px;
+  border: 7px solid #353a38;
+  border-radius: 50%;
+  background: #18242a;
+  box-shadow: 7px 8px 11px rgba(37, 31, 22, 0.3);
+  transform: translateZ(36px);
+}
+
+.photo-flash {
+  position: absolute;
+  left: 19px;
+  top: 12px;
+  width: 26px;
+  height: 12px;
+  border-radius: 3px;
+  background: #f2e5bf;
+}
+
+.photo-viewfinder {
+  position: absolute;
+  left: 73px;
+  top: 13px;
+  width: 35px;
+  height: 18px;
+  border-radius: 4px 4px 0 0;
+  background: #554c42;
+  transform: translateZ(25px);
+}
+
+/* Acabado neomórfico de los objetos: mismo material suave que la interfaz. */
+.camera-body,
+.photo-body {
+  box-shadow: 10px 10px 20px #abb7c9, -8px -8px 16px #fff, inset 4px 4px 8px rgba(255, 255, 255, 0.25), inset -4px -4px 8px rgba(54, 71, 105, 0.2);
+}
+
+.camera-body { background: linear-gradient(135deg, #78a2d3, var(--color-video)); }
+.photo-body { background: linear-gradient(135deg, #e8a49b, var(--color-photo)); }
+
+.camera-handle,
+.photo-grip,
+.camera-viewfinder,
+.photo-viewfinder {
+  box-shadow: 4px 4px 8px rgba(77, 94, 126, 0.25), -3px -3px 7px rgba(255, 255, 255, 0.5);
+}
+
+.camera-handle,
+.camera-viewfinder { background: #3e6093; border-color: #3e6093; }
+.photo-grip,
+.photo-viewfinder { background: #a95f5b; border-color: #a95f5b; }
+
+.camera-panel {
+  border-color: #91b2d8;
+  background: #496f9e;
+  box-shadow: inset 3px 3px 6px rgba(29, 58, 93, 0.55), inset -2px -2px 5px rgba(164, 200, 234, 0.3);
+}
+
+.camera-lens,
+.photo-lens {
+  border-color: #d5e0ea;
+  background: #3c506d;
+  box-shadow: inset 5px 5px 9px #273b55, inset -3px -3px 7px #7890ad, 6px 6px 12px rgba(70, 87, 118, 0.35);
+}
+
+.camera-lens span,
+.photo-lens span {
+  background: radial-gradient(circle at 35% 30%, #a8c3e1, #637fa8 36%, #3e526d 72%);
+}
+
+@keyframes floatVideoCamera {
+  0%, 100% { transform: translateY(0) rotateX(7deg) rotateY(-15deg); }
+  50% { transform: translateY(-14px) rotateX(7deg) rotateY(-15deg); }
+}
+
+@keyframes floatPhotoCamera {
+  0%, 100% { transform: translateY(0) rotateX(8deg) rotateY(16deg); }
+  50% { transform: translateY(-14px) rotateX(8deg) rotateY(16deg); }
 }
 
 @media (max-width: 560px) {

@@ -6,7 +6,7 @@
   background: var(--color-surface);
   border-radius: var(--radius-panel);
   box-shadow: var(--shadow-lg);
-  padding: 52px 40px 40px;
+  padding: 52px 40px 42px;
   text-align: center;
 }
 
@@ -15,6 +15,7 @@
   height: 44px;
   margin: 0 auto 20px;
   color: var(--color-accent);
+  filter: drop-shadow(3px 3px 4px #c2cad6);
 }
 
 .login-card h1 {
@@ -41,13 +42,14 @@
   width: 100%;
   padding: 16px 18px;
   border-radius: var(--radius-object);
-  border: 1.5px solid var(--color-border);
-  background: var(--color-surface-alt);
+  border: 0;
+  background: var(--color-surface);
+  box-shadow: var(--shadow-inset);
   font-size: 1.3rem;
   letter-spacing: 10px;
   text-align: center;
   color: var(--color-ink);
-  transition: border-color var(--dur-fast) var(--ease-standard);
+  transition: box-shadow var(--dur-fast) var(--ease-standard);
 }
 
 #password-input::placeholder {
@@ -57,7 +59,7 @@
 }
 
 #password-input:focus {
-  border-color: var(--color-accent);
+  box-shadow: inset 4px 4px 8px #b8c2d0, inset -4px -4px 8px #fff, 0 0 0 3px var(--color-accent-tint);
 }
 
 .login-error {

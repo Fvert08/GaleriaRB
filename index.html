@@ -59,17 +59,21 @@
 
       <div class="menu-options">
         <button id="option-videos" class="floating-option" aria-label="Ver videos">
-          <div class="float-inner mini-vhs">
-            <div class="mini-vhs-reels"><span></span><span></span></div>
-            <div class="mini-vhs-window"></div>
+          <div class="float-inner native-model native-video-camera" aria-hidden="true">
+            <span class="camera-handle"></span>
+            <span class="camera-body"><span class="camera-panel"></span></span>
+            <span class="camera-lens"><span></span></span>
+            <span class="camera-viewfinder"></span>
           </div>
           <span class="option-label">Videos</span>
         </button>
 
-        <button id="option-photos" class="floating-option album-mini" aria-label="Ver fotos">
-          <div class="float-inner mini-album">
-            <span class="mini-album-spine"></span>
-            <span class="mini-album-cover"></span>
+        <button id="option-photos" class="floating-option" aria-label="Ver fotos">
+          <div class="float-inner native-model native-photo-camera" aria-hidden="true">
+            <span class="photo-grip"></span>
+            <span class="photo-body"><span class="photo-flash"></span></span>
+            <span class="photo-lens"><span></span></span>
+            <span class="photo-viewfinder"></span>
           </div>
           <span class="option-label">Fotos</span>
         </button>
@@ -95,8 +99,8 @@
       </div>
     </section>
 
-    <!-- ======================= PANTALLA: ÁLBUMES ======================= -->
-    <section id="screen-albums" class="screen" aria-label="Álbumes de fotos">
+    <!-- ======================= PANTALLA: FOTOS ======================= -->
+    <section id="screen-albums" class="screen" aria-label="Tarjetas micro SD de fotos">
       <header class="carousel-header">
         <button id="albums-back" class="btn-back">
           <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -108,9 +112,9 @@
       </header>
 
       <div class="carousel-stage">
-        <button id="albums-prev" class="nav-arrow" aria-label="Álbum anterior">&#8249;</button>
+        <button id="albums-prev" class="nav-arrow" aria-label="Tarjeta micro SD anterior">&#8249;</button>
         <div id="album-slot" class="carousel-slot"></div>
-        <button id="albums-next" class="nav-arrow" aria-label="Álbum siguiente">&#8250;</button>
+        <button id="albums-next" class="nav-arrow" aria-label="Tarjeta micro SD siguiente">&#8250;</button>
       </div>
     </section>
   </div>

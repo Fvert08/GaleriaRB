@@ -7,37 +7,42 @@
 */
 
 :root {
-  /* ---------- Color ---------- */
-  --color-bg: #ECE1C8;              /* crema único de fondo, sin degradado */
-  --color-surface: #FAF5E7;         /* superficie clara para paneles flotantes */
-  --color-surface-alt: #F3EAD3;     /* variación sutil de superficie */
-  --color-border: #DCCBA3;          /* bordes y divisores suaves */
+  /* ---------- Paleta neomórfica ---------- */
+  --color-bg: #e7ecf3;
+  --color-surface: #e7ecf3;
+  --color-surface-alt: #edf1f7;
+  --color-border: #d4dbe5;
 
-  --color-ink: #2A2318;             /* texto principal, alto contraste */
-  --color-ink-soft: #6E6250;        /* texto secundario (fechas, metadatos) */
-  --color-ink-faint: #A0947C;       /* texto terciario / placeholders */
+  --color-ink: #34445a;
+  --color-ink-soft: #718198;
+  --color-ink-faint: #9aa7b9;
 
-  --color-accent: #7B2E2A;          /* rojo óxido, como etiqueta de cinta VHS */
-  --color-accent-dark: #5E211E;     /* estado hover/activo del acento */
-  --color-accent-tint: #E7C9AE;     /* realce suave sobre superficies claras */
+  --color-accent: #5e78c7;
+  --color-accent-dark: #4661af;
+  --color-accent-tint: #d4ddf5;
+  --color-video: #4f79b8;
+  --color-photo: #cf786f;
+  --color-storage: #826bc2;
+  --color-vhs: #40536f;
 
-  --color-shell: #2E2620;           /* "plástico" oscuro del estuche VHS */
-  --color-shell-light: #45392E;     /* detalles/relieves sobre el estuche */
+  --color-shell: #cfd7e3;
+  --color-shell-light: #f6f8fc;
+  --color-danger: #bd6370;
 
-  --color-danger: #9A3B33;          /* mensajes de error */
-
-  /* ---------- Sombra "flotante" ---------- */
-  --shadow-sm: 0 4px 14px rgba(30, 24, 14, 0.10);
-  --shadow-md: 0 14px 34px rgba(30, 24, 14, 0.16);
-  --shadow-lg: 0 24px 56px rgba(30, 24, 14, 0.22);
+  /* ---------- Relieve ---------- */
+  --shadow-sm: 5px 5px 10px #c6ceda, -5px -5px 10px #ffffff;
+  --shadow-md: 10px 10px 20px #c2cad6, -10px -10px 20px #ffffff;
+  --shadow-lg: 18px 18px 36px #bec7d4, -18px -18px 36px #ffffff;
+  --shadow-inset: inset 5px 5px 10px #c6ceda, inset -5px -5px 10px #ffffff;
+  --shadow-inset-soft: inset 3px 3px 6px #c6ceda, inset -3px -3px 6px #ffffff;
 
   /* ---------- Tipografía ---------- */
   --font-display: "Fraunces", "Iowan Old Style", "Georgia", serif;
   --font-body: "Inter", "Segoe UI", system-ui, sans-serif;
 
   /* ---------- Forma ---------- */
-  --radius-panel: 26px;   /* paneles genéricos: login, encabezados, overlays */
-  --radius-object: 10px;  /* objetos con identidad propia: VHS, álbum */
+  --radius-panel: 30px;
+  --radius-object: 18px;
   --radius-pill: 999px;
 
   /* ---------- Movimiento ---------- */

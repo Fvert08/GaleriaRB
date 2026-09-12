@@ -23,32 +23,78 @@ const dateFormatter = new Intl.DateTimeFormat("es-ES", {
 
 function formatDate(isoDate) {
   const date = new Date(`${isoDate}T00:00:00`);
-  if (Number.isNaN(date.getTime())) return isoDate;
-  return dateFormatter.format(date);
+  return Number.isNaN(date.getTime()) ? isoDate : dateFormatter.format(date);
 }
 
 function buildCard(video) {
   const card = document.createElement("div");
   card.className = "vhs-card slide-card";
   card.dataset.id = video.id;
+  card.style.setProperty("--media-color", video.color || "var(--color-accent)");
 
   card.innerHTML = `
     <div class="vhs-shell">
-      <div class="vhs-reels"><span></span><span></span></div>
-      <div class="vhs-window">
-        <img class="vhs-thumb" src="${video.thumbnail}" alt="Previsualización de ${video.title}">
-        <div class="vhs-play-badge" aria-hidden="true">&#9654;</div>
-        <span class="vhs-duration-badge">${video.duration}</span>
+      <img class="vhs-preview" src="${video.thumbnail}" alt="Previsualización de ${video.title}">
+      <div class="vhs-model native-model native-vhs" aria-hidden="true">
+        <span class="vhs-front">
+          <span class="vhs-label"></span>
+          <span class="vhs-reel vhs-reel-left"></span>
+          <span class="vhs-reel vhs-reel-right"></span>
+          <span class="vhs-window"></span>
+        </span>
+        <span class="vhs-side"></span>
       </div>
     </div>
-    <div class="vhs-info">
-      <h3 class="vhs-name">${video.title}</h3>
-      <p class="vhs-date">${formatDate(video.date)}</p>
+    <div class="media-info vhs-info">
+      <div class="media-title-row">
+        <span class="media-color-dot" aria-hidden="true"></span>
+        <h3 class="media-title">${video.title}</h3>
+      </div>
+      <p class="media-detail">${formatDate(video.date)} · ${video.duration}</p>
     </div>
   `;
 
-  const windowEl = card.querySelector(".vhs-window");
-  card.addEventListener("click", () => openPlayer(video, windowEl));
+  const preview = card.querySelector(".vhs-preview");
+  let previewTimer;
+
+  const showPreviewAfterDelay = () => {
+    window.clearTimeout(previewTimer);
+    previewTimer = window.setTimeout(() => {
+      card.classList.add("preview-visible");
+    }, 1500);
+  };
+
+  const hidePreview = () => {
+    window.clearTimeout(previewTimer);
+    card.classList.remove("preview-visible");
+  };
+
+  card.addEventListener("pointerenter", showPreviewAfterDelay);
+  card.addEventListener("pointerleave", hidePreview);
+  card.addEventListener("focusin", showPreviewAfterDelay);
+  card.addEventListener("focusout", hidePreview);
+  card.tabIndex = 0;
+  card.setAttribute("role", "button");
+  card.setAttribute("aria-label", "Reproducir " + video.title);
+  const select = () => {
+    if (card.classList.contains("pressed")) return;
+    card.classList.add("pressed");
+    card.querySelector(".vhs-model").addEventListener(
+      "animationend",
+      () => {
+        card.classList.remove("pressed");
+        openPlayer(video, preview);
+      },
+      { once: true }
+    );
+  };
+  card.addEventListener("click", select);
+  card.addEventListener("keydown", (event) => {
+    if (event.key === "Enter" || event.key === " ") {
+      event.preventDefault();
+      select();
+    }
+  });
 
   return card;
 }

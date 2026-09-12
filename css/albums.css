@@ -1,65 +1,119 @@
-/* albums.css — el álbum de fotos: lomo de color + portada */
+/* albums.css — las micro SD que dan acceso a las fotos */
 
 .album-card {
   width: 250px;
-  cursor: pointer;
   display: flex;
   flex-direction: column;
   align-items: center;
 }
 
 .album-shell {
-  width: 100%;
-  display: flex;
-  aspect-ratio: 4 / 3;
-  border-radius: var(--radius-object);
-  overflow: hidden;
-  box-shadow: var(--shadow-md);
-  transition: box-shadow var(--dur-fast) var(--ease-standard),
-    transform var(--dur-fast) var(--ease-standard);
+  width: 145px;
+  height: 188px;
+  animation: objectFloat 4.5s ease-in-out infinite;
 }
 
 .album-card:hover .album-shell {
-  box-shadow: var(--shadow-lg);
-  transform: translateY(-3px);
+  filter: drop-shadow(0 16px 12px rgba(37, 31, 22, 0.3));
 }
 
-.album-spine {
-  width: 22px;
-  background: var(--album-color, var(--color-accent));
+.album-card.pressed .album-shell {
+  animation: pressBounce 0.5s var(--ease-standard);
 }
 
-.album-cover {
-  flex: 1;
-  background: var(--color-surface);
-  border: 1.5px solid var(--color-border);
-  border-left: none;
+.media-info {
+  width: 100%;
+  margin-top: 22px;
+  text-align: center;
+}
+
+.media-title-row {
   display: flex;
   align-items: center;
   justify-content: center;
-  position: relative;
+  gap: 8px;
 }
 
-.album-icon {
-  width: 46px;
-  height: 46px;
-  color: var(--album-color, var(--color-accent));
+.media-color-dot {
+  width: 12px;
+  height: 12px;
+  flex: 0 0 12px;
+  border-radius: 50%;
+  background: var(--media-color, var(--color-accent));
+  box-shadow: 3px 3px 6px #bec8d5, -3px -3px 6px #fff;
 }
 
-.album-info {
-  text-align: center;
-  margin-top: 18px;
-}
-
-.album-name {
+.media-title {
   font-family: var(--font-display);
-  font-size: 1.15rem;
+  font-size: 1.05rem;
   font-weight: 600;
   color: var(--color-ink);
-  margin-bottom: 4px;
 }
 
-.album-count {
+.media-detail {
+  margin-top: 4px;
   color: var(--color-ink-soft);
-  font-size: 0.92rem;
+  font-size: 0.9rem;
+}
+
+.native-sd-card {
+  perspective: 700px;
+  filter: drop-shadow(0 12px 9px rgba(37, 31, 22, 0.24));
+}
+
+.sd-front {
+  position: absolute;
+  inset: 0;
+  clip-path: polygon(28% 0, 100% 0, 100% 100%, 0 100%, 0 21%);
+  border-radius: 8px;
+  background: linear-gradient(135deg, #aa93e2, var(--color-storage));
+  box-shadow: 10px 10px 20px #abb7c9, -8px -8px 16px #fff, inset 4px 4px 8px rgba(255, 255, 255, 0.28), inset -4px -4px 8px rgba(49, 35, 101, 0.25);
+  transform: translateZ(14px);
+}
+
+.sd-side {
+  position: absolute;
+  top: 4px;
+  right: -11px;
+  width: 15px;
+  height: 176px;
+  border-radius: 0 6px 6px 0;
+  background: #5c4b9a;
+  transform: rotateY(72deg) translateZ(10px);
+}
+
+.sd-label {
+  position: absolute;
+  left: 21px;
+  bottom: 24px;
+  color: #fff;
+  font-family: var(--font-body);
+  font-size: 1.35rem;
+  font-weight: 700;
+  letter-spacing: -1px;
+  line-height: 0.85;
+}
+
+.sd-contact {
+  position: absolute;
+  top: 11px;
+  width: 15px;
+  height: 37px;
+  background: linear-gradient(90deg, #d2c4f4, #fff, #aa92dc);
+  transform: translateZ(18px);
+}
+
+.sd-contact-1 { left: 46px; }
+.sd-contact-2 { left: 64px; }
+.sd-contact-3 { left: 82px; }
+.sd-contact-4 { left: 100px; }
+
+@keyframes objectFloat {
+  0%,
+  100% {
+    transform: translateY(0) rotateX(10deg) rotateY(-18deg);
+  }
+  50% {
+    transform: translateY(-14px) rotateX(10deg) rotateY(-18deg);
+  }
 }
